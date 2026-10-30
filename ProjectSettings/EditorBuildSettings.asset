@@ -4,6 +4,24 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/00_Scenes/00_BootScene.unity
+    guid: 43040e614eac645469c7a889692e48c0
+  - enabled: 1
+    path: Assets/00_Scenes/01_TitleScene.unity
+    guid: ec0fbde6371078a4d83f52f19df66cb1
+  - enabled: 1
+    path: Assets/00_Scenes/02_StageSelectScene.unity
+    guid: a0bc5ac3cfc337e4fadd898103b79011
+  - enabled: 1
+    path: Assets/00_Scenes/03_InGameScene.unity
+    guid: 68948703894491b49b02418ae29152c7
+  - enabled: 1
+    path: Assets/00_Scenes/04_ResultScene.unity
+    guid: 5738b9dcc528b274bb91db8ae7be99eb
+  - enabled: 1
+    path: Assets/00_Scenes/05_OptionScene.unity
+    guid: d18695337d4ca6e4caf2eb462d8d92b4
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
