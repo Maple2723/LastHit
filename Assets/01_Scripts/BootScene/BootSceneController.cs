@@ -1,13 +1,15 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using static LastHit.SceneNames;
 
 /// <summary>
 /// BootSceneの処理を制御するクラス
 /// </summary>
 public class BootSceneController : MonoBehaviour
 {
+    [SerializeField] private SceneTransitionController sceneTransition;
+
     private void Start()
     {
-        SceneManager.LoadScene("01_TitleScene");
+        sceneTransition.LoadScene(TITLE_SCENE, _isFadeEnabled: true);
     }
 }
