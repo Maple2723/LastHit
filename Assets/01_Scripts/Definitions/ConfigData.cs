@@ -60,7 +60,7 @@ namespace LastHit
         }
 
         [Serializable]
-        public struct ApplyConfig   // 操作キーの定義
+        public struct OperateConfig   // 操作キーの定義
         {
             public string test;     // 仮置き
         }
@@ -77,7 +77,7 @@ namespace LastHit
             [Header("ディスプレイ設定")]
             public DisplayConfig display;
             [Header("操作設定")]
-            public ApplyConfig apply;
+            public OperateConfig operate;
 
         }
     }
