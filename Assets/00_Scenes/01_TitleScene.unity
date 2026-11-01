@@ -334,6 +334,7 @@ GameObject:
   - component: {fileID: 1590654624}
   - component: {fileID: 1590654623}
   - component: {fileID: 1590654622}
+  - component: {fileID: 1590654625}
   m_Layer: 0
   m_Name: TitleSceneController
   m_TagString: Untagged
@@ -370,7 +371,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TitleSceneController
   view: {fileID: 1590654622}
+  model: {fileID: 1590654625}
   clickBlockSecond: 0.009999999776482582
+--- !u!114 &1590654625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1590654621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81ff640e94608c47a4135232314f245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TitleSceneModel
 --- !u!4 &1590654624
 Transform:
   m_ObjectHideFlags: 0
