@@ -14,9 +14,11 @@ public class SceneTransitionModel : MonoBehaviour
 
     /// <summary> シーンの追加、切り替えを行うメソッド </summary>
     /// <param name="_loadMode"> シーンを追加、切り替えにするか指定 </param>
-    public async UniTask ExecuteSceneLoad(LoadSceneMode loadMode = LoadSceneMode.Single)
+    public async UniTask ExecuteSceneLoad(LoadSceneMode _loadMode = LoadSceneMode.Single)
     {
-        await SceneManager.LoadSceneAsync(nextSceneName, loadMode);
+        if(_loadMode == LoadSceneMode.Additive && SceneManager.GetSceneByName(nextSceneName).isLoaded) return;
+
+        await SceneManager.LoadSceneAsync(nextSceneName, _loadMode);
         nextSceneName = null;
     }
 
