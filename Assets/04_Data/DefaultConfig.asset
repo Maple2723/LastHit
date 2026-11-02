@@ -28,5 +28,5 @@ MonoBehaviour:
     display:
       isFullScreen: 1
       windowSize: 1
-    apply:
+    operate:
       test: 
