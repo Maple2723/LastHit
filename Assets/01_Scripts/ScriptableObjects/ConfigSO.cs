@@ -9,5 +9,5 @@ using static LastHit.ConfigData;
 public class ConfigSO : ScriptableObject
 {
     [SerializeField]
-    private Config defaultConfig;   // 設定の初期値
+    public Config defaultConfig;   // 設定の初期値
 }
