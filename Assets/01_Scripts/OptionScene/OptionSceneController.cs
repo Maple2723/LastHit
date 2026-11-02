@@ -1,6 +1,7 @@
 using System;
 using UniRx;
 using UnityEngine;
+using static LastHit.SceneNames;
 
 /// <summary>
 /// OptionSceneの処理を制御するクラス
@@ -63,43 +64,51 @@ public class OptionSceneController : MonoBehaviour
             .AddTo(this);
     }
 
+    /// <summary> ゲームプレイ設定ボタンが押された際の処理を行うメソッド </summary>
     private void OnGamePlayConfigButtonClicked()
     {
-        Debug.Log("ゲームプレイ設定ボタンが押されました");
+        view.ShowCategory(OptionPanelType.GamePlay);
     }
 
+    /// <summary> カメラ設定ボタンが押された際の処理を行うメソッド </summary>
     private void OnCameraConfigButtonClicked()
     {
-        Debug.Log("カメラ設定ボタンが押されました");
+        view.ShowCategory(OptionPanelType.Camera);
     }
 
+    /// <summary> サウンド設定ボタンが押された際の処理を行うメソッド </summary>
     private void OnSoundConfigButtonClicked()
     {
-        Debug.Log("サウンド設定ボタンが押されました");
+        view.ShowCategory(OptionPanelType.Sound);
     }
 
+    /// <summary> ディスプレイ設定ボタンが押された際の処理を行うメソッド </summary>
     private void OnDisplayConfigButtonClicked()
     {
-        Debug.Log("ディスプレイ設定ボタンが押されました");
+        view.ShowCategory(OptionPanelType.Display);
     }
 
+    /// <summary> 操作設定ボタンが押された際の処理を行うメソッド </summary>
     private void OnOperateConfigButtonClicked()
     {
-        Debug.Log("操作設定ボタンが押されました");
+        view.ShowCategory(OptionPanelType.Operate);
     }
 
+    /// <summary> 初期設定に戻すボタンが押された際の処理を行うメソッド </summary>
     private void OnResetButtonClicked()
     {
         Debug.Log("初期設定に戻すボタンが押されました");
     }
 
+    /// <summary> 適用ボタンが押された際の処理を行うメソッド </summary>
     private void OnApplyButtonClicked()
     {
         Debug.Log("適用ボタンが押されました");
     }
 
+    /// <summary> 閉じるボタンが押された際の処理を行うメソッド </summary>
     private void OnCloseButtonClicked()
     {
-        Debug.Log("閉じるボタンが押されました");
+        SceneTransitionController.Instance.UnloadScene(OPTION_SCENE);
     }
 }
