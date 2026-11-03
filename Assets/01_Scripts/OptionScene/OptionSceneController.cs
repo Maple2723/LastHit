@@ -8,14 +8,17 @@ using static LastHit.SceneNames;
 /// </summary>
 public class OptionSceneController : MonoBehaviour
 {
-    [Header("Viewを登録")]
+    [Header("Model,Viewを登録")]
     [SerializeField] private OptionSceneView view;
+    [SerializeField] private OptionSceneModel model;
 
     [Header("ボタンの連打防止時間を設定")]
     [SerializeField, Range(0.01f, 1f)] private double clickBlockSecond = 0.1;
 
     private void Start()
     {
+        model.SetConfigData(ConfigDataController.Instance.GetConfigData());
+
         var interval = TimeSpan.FromSeconds(clickBlockSecond);
 
         view.GamePlayConfigButtonClick
@@ -97,18 +100,20 @@ public class OptionSceneController : MonoBehaviour
     /// <summary> 初期設定に戻すボタンが押された際の処理を行うメソッド </summary>
     private void OnResetButtonClicked()
     {
-        Debug.Log("初期設定に戻すボタンが押されました");
+        model.SetConfigData(ConfigDataController.Instance.GetDefaultConfigData());
     }
 
     /// <summary> 適用ボタンが押された際の処理を行うメソッド </summary>
     private void OnApplyButtonClicked()
     {
-        Debug.Log("適用ボタンが押されました");
+        ConfigDataController.Instance.ChangeConfigData(model.GetConfigData());
+        ConfigDataController.Instance.SaveConfigData();
     }
 
     /// <summary> 閉じるボタンが押された際の処理を行うメソッド </summary>
     private void OnCloseButtonClicked()
     {
+        ConfigDataController.Instance.SaveConfigData();
         SceneTransitionController.Instance.UnloadScene(OPTION_SCENE);
     }
 }

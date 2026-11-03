@@ -14,6 +14,12 @@ public class ConfigDataModel : MonoBehaviour
     [HideInInspector] private Config configData;            // 設定データの実体
     private static readonly string FILE_PATH = Path.Combine(FOLDER_PATH, CONFIG_FILE);  // 設定データのファイルパス
 
+    /// <summary> アプリケーション終了時に設定データを保存するメソッド </summary>
+    private void OnApplicationQuit()
+    {
+        SaveConfigData();
+    }
+
     /// <summary> 設定データをjsonから読み込むメソッド </summary>
     public void LoadConfigData()
     {
