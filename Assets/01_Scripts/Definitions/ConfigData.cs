@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace LastHit
 {
@@ -62,7 +63,20 @@ namespace LastHit
         [Serializable]
         public struct OperateConfig   // 操作キーの定義
         {
-            public string test;     // 仮置き
+            [Header("前に移動")]
+            public Key moveForward;
+            [Header("後ろに移動")]
+            public Key moveBackward;
+            [Header("右に移動")]
+            public Key moveRight;
+            [Header("左に移動")]
+            public Key moveLeft;
+            [Header("ジャンプ")]
+            public Key jump;
+            [Header("しゃがむ")]
+            public Key crouch;
+            [Header("回避")]
+            public Key dodge;
         }
 
         [Serializable]
@@ -78,7 +92,6 @@ namespace LastHit
             public DisplayConfig display;
             [Header("操作設定")]
             public OperateConfig operate;
-
         }
     }
 }

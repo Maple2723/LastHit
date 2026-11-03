@@ -343,7 +343,13 @@ MonoBehaviour:
       isFullScreen: 0
       windowSize: 0
     operate:
-      test: 
+      moveForward: 37
+      moveBackward: 33
+      moveRight: 18
+      moveLeft: 15
+      jump: 1
+      crouch: 55
+      dodge: 51
 --- !u!114 &553695096 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7395987551257828192, guid: 0fb019e0aa413ab41b68e4afc4079353, type: 3}
