@@ -18,7 +18,13 @@ public class TitleSceneController : MonoBehaviour
 
     private void Start()
     {
-        var interval = TimeSpan.FromSeconds(clickBlockSecond);     // 待機時間 
+        RegisterButtonEvents();
+    }
+
+    /// <summary> ボタンのイベントを登録するメソッド </summary>
+    private void RegisterButtonEvents()
+    {
+        var interval = TimeSpan.FromSeconds(clickBlockSecond);     // 待機時間
 
         // クリック時に呼び出される関数を登録
         view.StartButtonClick
