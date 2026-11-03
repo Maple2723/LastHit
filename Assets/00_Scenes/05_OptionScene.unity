@@ -242,6 +242,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 204636711}
+  - component: {fileID: 204636713}
   - component: {fileID: 204636712}
   - component: {fileID: 204636710}
   m_Layer: 0
@@ -311,7 +312,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OptionSceneController
   view: {fileID: 204636710}
+  model: {fileID: 204636713}
   clickBlockSecond: 0.12700000405311584
+--- !u!114 &204636713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204636709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d23e7c923f74bdc919dc9eaf53079cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OptionSceneModel
+  configData:
+    gamePlay:
+      isViewControlHint: 0
+    camera:
+      sensitivity: 20
+      fieldOfView: 120
+      isInvertX: 0
+      isInvertY: 0
+    sound:
+      masterVolume: 0
+      bgmVolume: 0
+      seVolume: 0
+      effectVolume: 0
+    display:
+      isFullScreen: 0
+      windowSize: 0
+    operate:
+      test: 
 --- !u!114 &553695096 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7395987551257828192, guid: 0fb019e0aa413ab41b68e4afc4079353, type: 3}
