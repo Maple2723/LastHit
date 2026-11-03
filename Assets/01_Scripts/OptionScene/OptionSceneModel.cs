@@ -6,7 +6,7 @@ using static LastHit.ConfigData;
 /// </summary>
 public class OptionSceneModel : MonoBehaviour
 {
-    [SerializeField] private Config configData;
+    private Config configData;
 
     public Config GetConfigData() => configData;
 

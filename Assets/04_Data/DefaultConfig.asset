@@ -16,18 +16,18 @@ MonoBehaviour:
     gamePlay:
       isViewControlHint: 1
     camera:
-      sensitivity: 0
-      fieldOfView: 60
+      sensitivity: 10
+      fieldOfView: 90
       isInvertX: 0
       isInvertY: 0
     sound:
-      masterVolume: 0
-      bgmVolume: 0
-      seVolume: 0
-      effectVolume: 0
+      masterVolume: 50
+      bgmVolume: 50
+      seVolume: 50
+      effectVolume: 50
     display:
       isFullScreen: 1
-      windowSize: 1
+      windowSize: 0
     operate:
       moveForward: 37
       moveBackward: 33
