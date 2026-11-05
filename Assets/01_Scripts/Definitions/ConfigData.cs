@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace LastHit
 {
@@ -60,41 +59,35 @@ namespace LastHit
             public WindowSize windowSize;   // ウィンドウサイズ設定
         }
 
-        public enum MouseBinding
+        [Serializable]
+        public enum OperateAction   // 操作アクションの定義
         {
-            None,
-            Left,
-            Right,
-            Middle,
-            Back,
-            Forward
+            MoveForward,    // 前に移動
+            MoveBackward,   // 後ろに移動
+            MoveRight,      // 右に移動
+            MoveLeft,       // 左に移動
+            Jump,           // ジャンプ
+            Crouch,         // しゃがむ
+            Dodge           // 回避
         }
-
 
         [Serializable]
         public struct OperateConfig   // 操作キーの定義
         {
             [Header("前に移動")]
-            public Key moveForward;
-            public MouseBinding moveForwardMouse;
+            public string moveForward;
             [Header("後ろに移動")]
-            public Key moveBackward;
-            public MouseBinding moveBackwardMouse;
+            public string moveBackward;
             [Header("右に移動")]
-            public Key moveRight;
-            public MouseBinding moveRightMouse;
+            public string moveRight;
             [Header("左に移動")]
-            public Key moveLeft;
-            public MouseBinding moveLeftMouse;
+            public string moveLeft;
             [Header("ジャンプ")]
-            public Key jump;
-            public MouseBinding jumpMouse;
+            public string jump;
             [Header("しゃがむ")]
-            public Key crouch;
-            public MouseBinding crouchMouse;
+            public string crouch;
             [Header("回避")]
-            public Key dodge;
-            public MouseBinding dodgeMouse;
+            public string dodge;
         }
 
         [Serializable]
