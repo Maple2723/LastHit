@@ -35,15 +35,7 @@ public class ConfigDataController : MonoBehaviour
     /// <summary> 確定済みの設定データをファイルに保存するメソッド </summary>
     public void SaveConfigData() => model.SaveConfigData();
 
-    public void ChangeConfigData(Config _fixData)
-    {
-        model.SetConfigData(_fixData);
-    }
-
-    public void ResetConfigData()
-    {
-        model.SetConfigData(model.defaultConfigData.defaultConfig);
-    }
+    public void ChangeConfigData(Config _fixData) => model.SetConfigData(_fixData);
 
     public Config GetDefaultConfigData() => model.defaultConfigData.defaultConfig;
 }

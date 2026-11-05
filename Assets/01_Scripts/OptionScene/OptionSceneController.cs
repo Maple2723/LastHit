@@ -1,11 +1,10 @@
-using Cysharp.Threading.Tasks;
-using LastHit;
 using System;
 using UniRx;
 using UnityEngine;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.EventSystems;
 using static LastHit.SceneNames;
+using static LastHit.ConfigData;
 
 /// <summary>
 /// OptionSceneの処理を制御するクラス
@@ -87,7 +86,7 @@ public class OptionSceneController : MonoBehaviour
 
         operateView.KeyButtonClicked
             .ThrottleFirst(interval, Scheduler.MainThreadIgnoreTimeScale)
-            .Subscribe(index => OnKeyConfigButtonClicked(index))
+            .Subscribe(action => OnKeyConfigButtonClicked(action))
             .AddTo(this);
     }
 
@@ -162,8 +161,24 @@ public class OptionSceneController : MonoBehaviour
         SceneTransitionController.Instance.UnloadScene(OPTION_SCENE);
     }
 
-    private async void OnKeyConfigButtonClicked()
+    /// <summary> キー設定を変更するメソッド </summary>
+    /// <param name="action"> 変更したいアクション </param>
+    private async void OnKeyConfigButtonClicked(OperateAction action)
     {
+        var inputModule = EventSystem.current?.currentInputModule as InputSystemUIInputModule;
+        inputModule.enabled = false;
+        // キー入力待ち
         operateView.ShowKeyInputPanel();
+        string inputName = await model.WaitForInputAsync();
+
+        // 入力後、設定を更新
+        if(inputName != "Escape")
+        {
+            model.SetOperateBinding(action, inputName);
+            operateView.SetConfigData(model.configData.operate);
+        }
+
+        operateView.HideKeyInputPanel();
+        inputModule.enabled = true;
     }
 }

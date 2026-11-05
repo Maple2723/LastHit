@@ -31,6 +31,7 @@ public class ConfigDataModel : MonoBehaviour
         }
 
         configData = JsonUtility.FromJson<Config>(File.ReadAllText(FILE_PATH));
+
     }
 
     /// <summary> 設定データをjsonに書き込むメソッド </summary>

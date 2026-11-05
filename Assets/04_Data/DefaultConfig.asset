@@ -29,10 +29,10 @@ MonoBehaviour:
       isFullScreen: 1
       windowSize: 0
     operate:
-      moveForward: 37
-      moveBackward: 33
-      moveRight: 18
-      moveLeft: 15
-      jump: 1
-      crouch: 55
-      dodge: 51
+      moveForward: W
+      moveBackward: S
+      moveRight: D
+      moveLeft: A
+      jump: Space
+      crouch: LeftCtrl
+      dodge: LeftShift
