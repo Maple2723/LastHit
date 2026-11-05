@@ -12,17 +12,17 @@ namespace LastHit
         [Serializable]
         public struct GamePlayConfig        // ゲーム設定の定義
         {
-            [Header ("操作方法のヒントを表示")]
+            [Header("操作方法のヒントを表示")]
             public bool isViewControlHint;  // 操作方法のヒントを表示するか
         }
 
         [Serializable]
         public struct CameraConfig                      // カメラ設定の定義
         {
-            [Header ("マウス感度")]
+            [Header("マウス感度")]
             [Range(0f, 20f)] public float sensitivity;  // マウス感度の設定
 
-            [Header ("視野角")]
+            [Header("視野角")]
             [Range(60f, 120f)] public int fieldOfView;  // 視野角の設定
             [Header("カメラの反転設定X")]
             public bool isInvertX;                      // カメラの反転設定X
@@ -46,9 +46,9 @@ namespace LastHit
         [Serializable]
         public enum WindowSize      // ウィンドウサイズの定義
         {
-            Size1920x1080,
-            Size1600x900,
             Size1280x720,
+            Size1600x900,
+            Size1920x1080,
         }
 
         [Serializable]
@@ -60,23 +60,41 @@ namespace LastHit
             public WindowSize windowSize;   // ウィンドウサイズ設定
         }
 
+        public enum MouseBinding
+        {
+            None,
+            Left,
+            Right,
+            Middle,
+            Back,
+            Forward
+        }
+
+
         [Serializable]
         public struct OperateConfig   // 操作キーの定義
         {
             [Header("前に移動")]
             public Key moveForward;
+            public MouseBinding moveForwardMouse;
             [Header("後ろに移動")]
             public Key moveBackward;
+            public MouseBinding moveBackwardMouse;
             [Header("右に移動")]
             public Key moveRight;
+            public MouseBinding moveRightMouse;
             [Header("左に移動")]
             public Key moveLeft;
+            public MouseBinding moveLeftMouse;
             [Header("ジャンプ")]
             public Key jump;
+            public MouseBinding jumpMouse;
             [Header("しゃがむ")]
             public Key crouch;
+            public MouseBinding crouchMouse;
             [Header("回避")]
             public Key dodge;
+            public MouseBinding dodgeMouse;
         }
 
         [Serializable]

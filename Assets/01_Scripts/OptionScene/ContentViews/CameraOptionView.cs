@@ -4,14 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using static LastHit.ConfigData;
 
-/// <summary> CameraConfigの表示と変更通知を担当する </summary>
+/// <summary> 
+/// カメラ設定のUI表示を管理するクラス
+/// </summary>
 public class CameraOptionView : MonoBehaviour
 {
+    [Header ("カメラ設定のUI")]
     [SerializeField] private Slider sensitivitySlider;
     [SerializeField] private Slider fieldOfViewSlider;
     [SerializeField] private Toggle invertXToggle;
     [SerializeField] private Toggle invertYToggle;
 
+    /// <summary> 設定データを画面上に反映させるメソッド </summary>
+    /// <param name="_config"> カメラの設定データ </param>
     public void SetConfigData(CameraConfig _config)
     {
         sensitivitySlider.SetValueWithoutNotify(_config.sensitivity);
@@ -20,6 +25,7 @@ public class CameraOptionView : MonoBehaviour
         invertYToggle.SetIsOnWithoutNotify(_config.isInvertY);
     }
 
+    /// <summary> カメラ設定の変更を一括で通知 </summary>
     public IObservable<CameraConfig> ConfigChanged => Observable.Merge(
         sensitivitySlider.OnValueChangedAsObservable().Skip(1).AsUnitObservable(),
         fieldOfViewSlider.OnValueChangedAsObservable().Skip(1).AsUnitObservable(),
