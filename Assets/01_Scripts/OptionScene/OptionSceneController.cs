@@ -1,7 +1,10 @@
+using Cysharp.Threading.Tasks;
+using LastHit;
 using System;
 using UniRx;
 using UnityEngine;
-using static LastHit.ConfigData;
+using UnityEngine.InputSystem.UI;
+using UnityEngine.EventSystems;
 using static LastHit.SceneNames;
 
 /// <summary>
@@ -81,65 +84,32 @@ public class OptionSceneController : MonoBehaviour
             .ThrottleFirst(interval, Scheduler.MainThreadIgnoreTimeScale)
             .Subscribe(_ => OnCloseButtonClicked())
             .AddTo(this);
+
+        operateView.KeyButtonClicked
+            .ThrottleFirst(interval, Scheduler.MainThreadIgnoreTimeScale)
+            .Subscribe(index => OnKeyConfigButtonClicked(index))
+            .AddTo(this);
     }
 
     /// <summary> 設定データを画面上に反映するメソッド </summary>
     private void RefreshConfigViews()
     {
-        var config = model.GetConfigData();
-        gamePlayView.SetConfigData(config.gamePlay);
-        cameraView.SetConfigData(config.camera);
-        soundView.SetConfigData(config.sound);
-        displayView.SetConfigData(config.display);
-        operateView.SetConfigData(config.operate);
+        gamePlayView.SetConfigData(model.configData.gamePlay);
+        cameraView.SetConfigData(model.configData.camera);
+        soundView.SetConfigData(model.configData.sound);
+        displayView.SetConfigData(model.configData.display);
+        operateView.SetConfigData(model.configData.operate);
     }
 
     /// <summary> 各設定を変更時に設定データに反映させるメソッド </summary>
     private void SubscribeConfigChanges()
     {
-        gamePlayView.ConfigChanged.Subscribe(_config =>
-        {
-            var config = model.GetConfigData();
-            config.gamePlay = _config;
-            model.SetConfigData(config);
-        }).AddTo(this);
-
-        cameraView.ConfigChanged.Subscribe(_config =>
-        {
-            var config = model.GetConfigData();
-            config.camera = _config;
-            model.SetConfigData(config);
-        }).AddTo(this);
-
-        soundView.ConfigChanged.Subscribe(_config =>
-        {
-            var config = model.GetConfigData();
-            config.sound = _config;
-            model.SetConfigData(config);
-        }).AddTo(this);
-
-        displayView.FullScreenChanged.Subscribe(_config =>
-        {
-            var config = model.GetConfigData();
-            config.display.isFullScreen = _config;
-            model.SetConfigData(config);
-        }).AddTo(this);
-
-        displayView.PreviousSizeClicked.Subscribe(_ => ChangeWindowSize(-1)).AddTo(this);
-        displayView.NextSizeClicked.Subscribe(_ => ChangeWindowSize(1)).AddTo(this);
+        gamePlayView.ConfigChanged.Subscribe(config => model.UpdateConfig(gamePlay: config)).AddTo(this);
+        cameraView.ConfigChanged.Subscribe(config => model.UpdateConfig(camera: config)).AddTo(this);
+        soundView.ConfigChanged.Subscribe(config => model.UpdateConfig(sound: config)).AddTo(this);
+        displayView.ConfigChanged.Subscribe(config => model.UpdateConfig(display: config)).AddTo(this);
     }
 
-    /// <summary> 画面サイズを変更時に設定データに反映させるメソッド </summary>
-    /// <param name="_direction"> サイズを大きくするか小さくするか </param>
-    private void ChangeWindowSize(int _direction)
-    {
-        var config = model.GetConfigData();
-        int count = Enum.GetValues(typeof(WindowSize)).Length;
-        int nextIndex = (int)config.display.windowSize + _direction;
-        config.display.windowSize = (WindowSize)Mathf.Clamp(nextIndex, 0, count - 1);
-        model.SetConfigData(config);
-        displayView.SetConfigData(config.display);
-    }
 
     /// <summary> ゲームプレイ設定ボタンが押された際の処理を行うメソッド </summary>
     private void OnGamePlayConfigButtonClicked()
@@ -181,7 +151,7 @@ public class OptionSceneController : MonoBehaviour
     /// <summary> 適用ボタンが押された際の処理を行うメソッド </summary>
     private void OnApplyButtonClicked()
     {
-        ConfigDataController.Instance.ChangeConfigData(model.GetConfigData());
+        ConfigDataController.Instance.ChangeConfigData(model.configData);
         ConfigDataController.Instance.SaveConfigData();
     }
 
@@ -190,5 +160,10 @@ public class OptionSceneController : MonoBehaviour
     {
         ConfigDataController.Instance.SaveConfigData();
         SceneTransitionController.Instance.UnloadScene(OPTION_SCENE);
+    }
+
+    private async void OnKeyConfigButtonClicked()
+    {
+        operateView.ShowKeyInputPanel();
     }
 }
