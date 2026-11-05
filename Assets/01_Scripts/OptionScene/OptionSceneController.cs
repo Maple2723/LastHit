@@ -39,30 +39,11 @@ public class OptionSceneController : MonoBehaviour
     {
         var interval = TimeSpan.FromSeconds(clickBlockSecond);
 
-        view.GamePlayConfigButtonClick
-            .ThrottleFirst(interval, Scheduler.MainThreadIgnoreTimeScale)
-            .Subscribe(_ => OnGamePlayConfigButtonClicked())
-            .AddTo(this);
-
-        view.CameraConfigButtonClick
-            .ThrottleFirst(interval, Scheduler.MainThreadIgnoreTimeScale)
-            .Subscribe(_ => OnCameraConfigButtonClicked())
-            .AddTo(this);
-
-        view.SoundConfigButtonClick
-            .ThrottleFirst(interval, Scheduler.MainThreadIgnoreTimeScale)
-            .Subscribe(_ => OnSoundConfigButtonClicked())
-            .AddTo(this);
-
-        view.DisplayConfigButtonClick
-            .ThrottleFirst(interval, Scheduler.MainThreadIgnoreTimeScale)
-            .Subscribe(_ => OnDisplayConfigButtonClicked())
-            .AddTo(this);
-
-        view.OperateConfigButtonClick
-            .ThrottleFirst(interval, Scheduler.MainThreadIgnoreTimeScale)
-            .Subscribe(_ => OnOperateConfigButtonClicked())
-            .AddTo(this);
+        RegisterCategoryButton(view.GamePlayConfigButtonClick, OptionPanelType.GamePlay, interval);
+        RegisterCategoryButton(view.CameraConfigButtonClick, OptionPanelType.Camera, interval);
+        RegisterCategoryButton(view.SoundConfigButtonClick, OptionPanelType.Sound, interval);
+        RegisterCategoryButton(view.DisplayConfigButtonClick, OptionPanelType.Display, interval);
+        RegisterCategoryButton(view.OperateConfigButtonClick, OptionPanelType.Operate, interval);
 
         view.FooterCloseButtonClick
             .ThrottleFirst(interval, Scheduler.MainThreadIgnoreTimeScale)
@@ -90,6 +71,15 @@ public class OptionSceneController : MonoBehaviour
             .AddTo(this);
     }
 
+    /// <summary> ボタンを押したときに対応するカテゴリを表示する </summary>
+    private void RegisterCategoryButton(IObservable<Unit> buttonClick, OptionPanelType category, TimeSpan interval)
+    {
+        buttonClick
+            .ThrottleFirst(interval, Scheduler.MainThreadIgnoreTimeScale)
+            .Subscribe(_ => view.ShowCategory(category))
+            .AddTo(this);
+    }
+
     /// <summary> 設定データを画面上に反映するメソッド </summary>
     private void RefreshConfigViews()
     {
@@ -110,36 +100,6 @@ public class OptionSceneController : MonoBehaviour
     }
 
 
-    /// <summary> ゲームプレイ設定ボタンが押された際の処理を行うメソッド </summary>
-    private void OnGamePlayConfigButtonClicked()
-    {
-        view.ShowCategory(OptionPanelType.GamePlay);
-    }
-
-    /// <summary> カメラ設定ボタンが押された際の処理を行うメソッド </summary>
-    private void OnCameraConfigButtonClicked()
-    {
-        view.ShowCategory(OptionPanelType.Camera);
-    }
-
-    /// <summary> サウンド設定ボタンが押された際の処理を行うメソッド </summary>
-    private void OnSoundConfigButtonClicked()
-    {
-        view.ShowCategory(OptionPanelType.Sound);
-    }
-
-    /// <summary> ディスプレイ設定ボタンが押された際の処理を行うメソッド </summary>
-    private void OnDisplayConfigButtonClicked()
-    {
-        view.ShowCategory(OptionPanelType.Display);
-    }
-
-    /// <summary> 操作設定ボタンが押された際の処理を行うメソッド </summary>
-    private void OnOperateConfigButtonClicked()
-    {
-        view.ShowCategory(OptionPanelType.Operate);
-    }
-
     /// <summary> 初期設定に戻すボタンが押された際の処理を行うメソッド </summary>
     private void OnResetButtonClicked()
     {
@@ -150,14 +110,12 @@ public class OptionSceneController : MonoBehaviour
     /// <summary> 適用ボタンが押された際の処理を行うメソッド </summary>
     private void OnApplyButtonClicked()
     {
-        ConfigDataController.Instance.ChangeConfigData(model.configData);
-        ConfigDataController.Instance.SaveConfigData();
+        ConfigDataController.Instance.ApplyConfig(model.configData);
     }
 
     /// <summary> 閉じるボタンが押された際の処理を行うメソッド </summary>
     private void OnCloseButtonClicked()
     {
-        ConfigDataController.Instance.SaveConfigData();
         SceneTransitionController.Instance.UnloadScene(OPTION_SCENE);
     }
 

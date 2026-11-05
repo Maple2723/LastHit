@@ -11,15 +11,15 @@ public class ConfigDataController : MonoBehaviour
 
     private void Awake()
     {
-        model.LoadConfigData();
-
-        if (Instance == null)
+        if (Instance != null && Instance != this)
         {
-            Instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            Destroy(gameObject);
             return;
         }
-        Destroy(this.gameObject);
+
+        model.LoadConfigData();
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     private void Update()
@@ -32,10 +32,12 @@ public class ConfigDataController : MonoBehaviour
 
     public Config GetConfigData() => model.GetConfigData();
 
-    /// <summary> 確定済みの設定データをファイルに保存するメソッド </summary>
-    public void SaveConfigData() => model.SaveConfigData();
-
-    public void ChangeConfigData(Config _fixData) => model.SetConfigData(_fixData);
+    /// <summary> 編集した設定を確定してファイルに保存する </summary>
+    public void ApplyConfig(Config config)
+    {
+        model.SetConfigData(config);
+        model.SaveConfigData();
+    }
 
     public Config GetDefaultConfigData() => model.defaultConfigData.defaultConfig;
 }
