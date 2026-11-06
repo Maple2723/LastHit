@@ -301,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BootSceneController
   sceneTransition: {fileID: 1557104164}
+  inputActions: {fileID: -944628639613478452, guid: 96661d637cb33004d856a4d14baa1c82, type: 3}
 --- !u!4 &1149562691
 Transform:
   m_ObjectHideFlags: 0

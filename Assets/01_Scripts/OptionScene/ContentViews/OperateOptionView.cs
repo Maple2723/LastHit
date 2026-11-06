@@ -14,7 +14,7 @@ public class OperateOptionView : MonoBehaviour
     [Serializable]
     private struct KeyButtonBinding
     {
-        public OperateAction action;
+        public OperateGameAction action;
         public Button button;
     }
 
@@ -45,7 +45,7 @@ public class OperateOptionView : MonoBehaviour
     }
 
     /// <summary> 操作設定の操作を一括で通知 </summary>
-    public IObservable<OperateAction> KeyButtonClicked =>
+    public IObservable<OperateGameAction> KeyButtonClicked =>
         Observable.Merge(keyButtons.Select(binding =>
             binding.button.OnClickAsObservable().Select(_ => binding.action)));
 

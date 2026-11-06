@@ -60,7 +60,7 @@ namespace LastHit
         }
 
         [Serializable]
-        public enum OperateAction   // 操作アクションの定義
+        public enum OperateGameAction   // 操作アクションの定義
         {
             MoveForward,    // 前に移動
             MoveBackward,   // 後ろに移動
