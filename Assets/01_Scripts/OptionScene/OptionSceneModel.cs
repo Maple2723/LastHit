@@ -33,18 +33,18 @@ public class OptionSceneModel : MonoBehaviour
     /// <summary> 選択したアクションに指定したキーを設定するメソッド </summary>
     /// <param name="action"> 変更するアクション </param>
     /// <param name="inputName"> キーの名前 </param>
-    public void SetOperateBinding(OperateAction action, string inputName)
+    public void SetOperateBinding(OperateGameAction action, string inputName)
     {
         var config = configData;
         switch (action)
         {
-            case OperateAction.MoveForward: config.operate.moveForward = inputName; break;
-            case OperateAction.MoveBackward: config.operate.moveBackward = inputName; break;
-            case OperateAction.MoveRight: config.operate.moveRight = inputName; break;
-            case OperateAction.MoveLeft: config.operate.moveLeft = inputName; break;
-            case OperateAction.Jump: config.operate.jump = inputName; break;
-            case OperateAction.Crouch: config.operate.crouch = inputName; break;
-            case OperateAction.Dodge: config.operate.dodge = inputName; break;
+            case OperateGameAction.MoveForward: config.operate.moveForward = inputName; break;
+            case OperateGameAction.MoveBackward: config.operate.moveBackward = inputName; break;
+            case OperateGameAction.MoveRight: config.operate.moveRight = inputName; break;
+            case OperateGameAction.MoveLeft: config.operate.moveLeft = inputName; break;
+            case OperateGameAction.Jump: config.operate.jump = inputName; break;
+            case OperateGameAction.Crouch: config.operate.crouch = inputName; break;
+            case OperateGameAction.Dodge: config.operate.dodge = inputName; break;
             default: return;
         }
 

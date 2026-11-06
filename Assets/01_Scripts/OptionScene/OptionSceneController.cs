@@ -111,6 +111,8 @@ public class OptionSceneController : MonoBehaviour
     private void OnApplyButtonClicked()
     {
         ConfigDataController.Instance.ApplyConfig(model.configData);
+
+        SetKeyBind.AllKeyBindSeting(model.configData.operate);
     }
 
     /// <summary> 閉じるボタンが押された際の処理を行うメソッド </summary>
@@ -121,7 +123,7 @@ public class OptionSceneController : MonoBehaviour
 
     /// <summary> キー設定を変更するメソッド </summary>
     /// <param name="action"> 変更したいアクション </param>
-    private async void OnKeyConfigButtonClicked(OperateAction action)
+    private async void OnKeyConfigButtonClicked(OperateGameAction action)
     {
         var inputModule = EventSystem.current?.currentInputModule as InputSystemUIInputModule;
         inputModule.enabled = false;

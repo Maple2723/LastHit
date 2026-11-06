@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using static LastHit.SceneNames;
 
 /// <summary>
@@ -7,9 +8,11 @@ using static LastHit.SceneNames;
 public class BootSceneController : MonoBehaviour
 {
     [SerializeField] private SceneTransitionController sceneTransition;
+    [SerializeField] private InputActionAsset inputActions;
 
     private void Start()
     {
+        SetKeyBind.AllKeyBindSeting(ConfigDataController.Instance.GetConfigData().operate, inputActions);
         sceneTransition.LoadScene(TITLE_SCENE, _isFadeEnabled: true);
     }
 }

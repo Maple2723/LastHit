@@ -4,7 +4,7 @@ using static LastHit.ConfigData;
 
 public class ConfigDataController : MonoBehaviour
 {
-    [SerializeField] private ConfigDataModel model;
+    [SerializeField] public ConfigDataModel model;
     [SerializeField] private Key saveKey = Key.F5;
 
     public static ConfigDataController Instance { get; private set; }
