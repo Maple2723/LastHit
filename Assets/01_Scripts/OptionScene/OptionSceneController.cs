@@ -103,8 +103,14 @@ public class OptionSceneController : MonoBehaviour
     /// <summary> 初期設定に戻すボタンが押された際の処理を行うメソッド </summary>
     private void OnResetButtonClicked()
     {
-        model.SetConfigData(ConfigDataController.Instance.GetDefaultConfigData());
-        RefreshConfigViews();
+        DialogController.Instance.ShowDialog(
+            LastHit.DialogDatas.resetConfigWindow,
+            () =>
+            {
+                model.SetConfigData(ConfigDataController.Instance.GetDefaultConfigData());
+                RefreshConfigViews();
+            }
+        );
     }
 
     /// <summary> 適用ボタンが押された際の処理を行うメソッド </summary>
