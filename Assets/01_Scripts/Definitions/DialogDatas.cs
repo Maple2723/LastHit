@@ -23,6 +23,13 @@ namespace LastHit
             buttonTexts = new string[] { "終了する", "続けてプレイ" }
         };
 
+        public static readonly DialogData resetConfigWindow = new DialogData   // 設定初期化時
+        {
+            headerText = "初期設定に戻す",
+            messageText = "すべての設定を初期設定に戻しますか？\n戻すには「適用」を押してください。",
+            buttonTexts = new string[] { "初期設定に戻す", "キャンセル" }
+        };
+
         public static readonly DialogData discardChangesWindow = new DialogData   // 設定変更破棄時
         {
             headerText = "設定変更の破棄",

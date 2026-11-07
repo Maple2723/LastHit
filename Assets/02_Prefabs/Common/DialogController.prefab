@@ -1719,7 +1719,6 @@ GameObject:
   - component: {fileID: 2667216821188809402}
   - component: {fileID: 3179656184787271686}
   - component: {fileID: 2412257625623980816}
-  - component: {fileID: 8282725756311834183}
   - component: {fileID: 7704434971189400433}
   m_Layer: 5
   m_Name: DialogController
@@ -1825,19 +1824,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogController
   view: {fileID: 7704434971189400433}
-  model: {fileID: 8282725756311834183}
---- !u!114 &8282725756311834183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2506519308328656190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a64ca6ca699af940b50ae7c5145cae6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DialogModel
 --- !u!114 &7704434971189400433
 MonoBehaviour:
   m_ObjectHideFlags: 0
