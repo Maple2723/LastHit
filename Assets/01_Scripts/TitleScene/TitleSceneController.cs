@@ -69,6 +69,6 @@ public class TitleSceneController : MonoBehaviour
     /// <summary> 終了ボタンが押された際の処理を行うメソッド </summary>
     private void QuitButtonClicked()
     {
-        model.QuitGame();
+        DialogController.Instance.ShowDialog(LastHit.DialogDatas.quitWindow, model.QuitGame);
     }
 }

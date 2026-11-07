@@ -85,7 +85,7 @@ public class SceneTransitionController : MonoBehaviour
     /// <summary> Viewで受け取ったアニメーションイベントをModelに渡すメソッド </summary>
     private void OnFadeCompleted() => model.SetIsFading(false);
 
-    /// <summary> Viewで受け取ったアニメーションイベントカラ非同期処理を開始するメソッド </summary>
+    /// <summary> Viewで受け取ったアニメーションイベントから非同期処理を開始するメソッド </summary>
     private void OnFadeOutEnd() => WaitSceneChange().Forget();
 
     
