@@ -112,13 +112,22 @@ public class OptionSceneController : MonoBehaviour
     {
         ConfigDataController.Instance.ApplyConfig(model.configData);
 
-        SetKeyBind.AllKeyBindSeting(model.configData.operate);
+        SetKeyBind.ApplyAllKeyBindings(model.configData.operate);
     }
 
     /// <summary> 閉じるボタンが押された際の処理を行うメソッド </summary>
     private void OnCloseButtonClicked()
     {
-        SceneTransitionController.Instance.UnloadScene(OPTION_SCENE);
+        if (!model.HasChanges(ConfigDataController.Instance.GetConfigData()))
+        {
+            SceneTransitionController.Instance.UnloadScene(OPTION_SCENE);
+            return;
+        }
+
+        DialogController.Instance.ShowDialog(
+            LastHit.DialogDatas.discardChangesWindow,
+            () => SceneTransitionController.Instance.UnloadScene(OPTION_SCENE)
+        );
     }
 
     /// <summary> キー設定を変更するメソッド </summary>

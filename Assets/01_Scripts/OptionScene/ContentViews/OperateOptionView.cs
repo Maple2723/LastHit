@@ -32,7 +32,7 @@ public class OperateOptionView : MonoBehaviour
     [SerializeField] private GameObject keyInputPanel;
 
     /// <summary> 設定データを画面上に反映させるメソッド </summary>
-    /// <param name="_config"> 画面の設定データ </param>
+    /// <param name="_config"> 操作の設定データ </param>
     public void SetConfigData(OperateConfig _config)
     {
         moveForwardText.text =_config.moveForward;
@@ -44,14 +44,14 @@ public class OperateOptionView : MonoBehaviour
         dodgeText.text = _config.dodge;
     }
 
-    /// <summary> 操作設定の操作を一括で通知 </summary>
+    /// <summary> キー割り当てを変更する操作の選択を通知 </summary>
     public IObservable<OperateGameAction> KeyButtonClicked =>
         Observable.Merge(keyButtons.Select(binding =>
             binding.button.OnClickAsObservable().Select(_ => binding.action)));
 
-    /// <summary> キー設定画面を表示するメソッド; </summary>
+    /// <summary> キー設定画面を表示するメソッド </summary>
     public void ShowKeyInputPanel() => keyInputPanel.SetActive(true);
 
-    /// <summary> キー設定画面を非表示にするメソッド; </summary>
+    /// <summary> キー設定画面を非表示にするメソッド </summary>
     public void HideKeyInputPanel() => keyInputPanel.SetActive(false);
 }

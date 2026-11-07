@@ -13,7 +13,7 @@ public class GamePlayOptionView : MonoBehaviour
     [SerializeField] private Toggle viewControlHintToggle;
 
     /// <summary> 設定データを画面上に反映させるメソッド </summary>
-    /// <param name="_config"> 画面の設定データ </param>
+    /// <param name="_config"> ゲーム内の設定データ </param>
     public void SetConfigData(GamePlayConfig _config)
     {
         viewControlHintToggle.SetIsOnWithoutNotify(_config.isViewControlHint);

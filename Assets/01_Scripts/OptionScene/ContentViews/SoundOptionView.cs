@@ -16,7 +16,7 @@ public class SoundOptionView : MonoBehaviour
     [SerializeField] private Slider effectVolumeSlider;
 
     /// <summary> 設定データを画面上に反映させるメソッド </summary>
-    /// <param name="_config"> 画面の設定データ </param>
+    /// <param name="_config"> 音量の設定データ </param>
     public void SetConfigData(SoundConfig _config)
     {
         masterVolumeSlider.SetValueWithoutNotify(_config.masterVolume);

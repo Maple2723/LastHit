@@ -7,22 +7,22 @@ using static LastHit.ConfigData;
 public static class SetKeyBind
 {
     /// <summary>操作設定に含まれるすべてのキー割り当てを適用する。</summary>
-    public static void AllKeyBindSeting(OperateConfig config, InputActionAsset actions = null)
+    public static void ApplyAllKeyBindings(OperateConfig config, InputActionAsset actions = null)
     {
-        KeyBindSeting(OperateGameAction.MoveForward, config.moveForward, actions);
-        KeyBindSeting(OperateGameAction.MoveBackward, config.moveBackward, actions);
-        KeyBindSeting(OperateGameAction.MoveLeft, config.moveLeft, actions);
-        KeyBindSeting(OperateGameAction.MoveRight, config.moveRight, actions);
-        KeyBindSeting(OperateGameAction.Jump, config.jump, actions);
-        KeyBindSeting(OperateGameAction.Crouch, config.crouch, actions);
-        KeyBindSeting(OperateGameAction.Dodge, config.dodge, actions);
+        ApplyKeyBinding(OperateGameAction.MoveForward, config.moveForward, actions);
+        ApplyKeyBinding(OperateGameAction.MoveBackward, config.moveBackward, actions);
+        ApplyKeyBinding(OperateGameAction.MoveLeft, config.moveLeft, actions);
+        ApplyKeyBinding(OperateGameAction.MoveRight, config.moveRight, actions);
+        ApplyKeyBinding(OperateGameAction.Jump, config.jump, actions);
+        ApplyKeyBinding(OperateGameAction.Crouch, config.crouch, actions);
+        ApplyKeyBinding(OperateGameAction.Dodge, config.dodge, actions);
     }
 
     /// <summary> 指定された操作にキー割り当てを設定するメソッド </summary>
     /// <param name="operation"> 設定する操作 </param>
     /// <param name="inputName"> 登録するキー </param>
     /// <param name="actions"> 適用先のアクションアセット </param>
-    public static void KeyBindSeting(OperateGameAction operation, string inputName, InputActionAsset actions = null)
+    public static void ApplyKeyBinding(OperateGameAction operation, string inputName, InputActionAsset actions = null)
     {
         // アクション名を取得する
         var (actionName, direction) = operation switch
@@ -63,7 +63,7 @@ public static class SetKeyBind
 
     /// <summary> キーの名前をInputSystemのパスに変換するメソッド </summary>
     /// <param name="inputName"> キーの名前 </param>
-    /// <returns></returns>
+    /// <returns> 変換されたコントロールパス </returns>
     private static string GetControlPath(string inputName)
     {
         // マウスが設定されている場合は先に変換して返す
