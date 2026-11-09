@@ -12,7 +12,12 @@ public class BootSceneController : MonoBehaviour
 
     private void Start()
     {
-        SetKeyBind.ApplyAllKeyBindings(ConfigDataController.Instance.GetConfigData().operate, inputActions);
+        var configController = ConfigDataController.Instance;
+        var config = configController.GetConfigData();
+
+        SetKeyBind.ApplyAllKeyBindings(config.operate, inputActions);
+        SetAudioVolume.ApplyAllVolumes(config.sound);
+        
         sceneTransition.LoadScene(TITLE_SCENE, _isFadeEnabled: true);
     }
 }

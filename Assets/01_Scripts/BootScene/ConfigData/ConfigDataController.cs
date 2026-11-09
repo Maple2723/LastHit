@@ -5,7 +5,6 @@ using static LastHit.ConfigData;
 public class ConfigDataController : MonoBehaviour
 {
     [SerializeField] public ConfigDataModel model;
-    [SerializeField] private Key saveKey = Key.F5;
 
     public static ConfigDataController Instance { get; private set; }
 
@@ -20,14 +19,6 @@ public class ConfigDataController : MonoBehaviour
         model.LoadConfigData();
         Instance = this;
         DontDestroyOnLoad(gameObject);
-    }
-
-    private void Update()
-    {
-        if (Keyboard.current[saveKey].wasPressedThisFrame)
-        {
-            model.SaveConfigData();
-        }
     }
 
     public Config GetConfigData() => model.GetConfigData();
