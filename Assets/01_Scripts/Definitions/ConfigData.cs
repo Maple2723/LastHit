@@ -1,4 +1,5 @@
 using System;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace LastHit
@@ -12,6 +13,7 @@ namespace LastHit
         public struct GamePlayConfig        // ゲーム設定の定義
         {
             [Header("操作方法のヒントを表示")]
+            [JsonProperty(Required = Required.Always)]
             public bool isViewControlHint;  // 操作方法のヒントを表示するか
         }
 
@@ -19,13 +21,17 @@ namespace LastHit
         public struct CameraConfig                      // カメラ設定の定義
         {
             [Header("マウス感度")]
+            [JsonProperty(Required = Required.Always)]
             [Range(0f, 20f)] public float sensitivity;  // マウス感度の設定
 
             [Header("視野角")]
+            [JsonProperty(Required = Required.Always)]
             [Range(60f, 120f)] public int fieldOfView;  // 視野角の設定
             [Header("カメラの反転設定X")]
+            [JsonProperty(Required = Required.Always)]
             public bool isInvertX;                      // カメラの反転設定X
             [Header("カメラの反転設定Y")]
+            [JsonProperty(Required = Required.Always)]
             public bool isInvertY;                      // カメラの反転設定Y
         }
 
@@ -33,12 +39,16 @@ namespace LastHit
         public struct SoundConfig                       // 音量設定の定義
         {
             [Header("全体音量設定")]
+            [JsonProperty(Required = Required.Always)]
             [Range(0, 100)] public int masterVolume;    // 全体音量の設定
             [Header("BGM音量設定")]
+            [JsonProperty(Required = Required.Always)]
             [Range(0, 100)] public int bgmVolume;       // BGM音量の設定
             [Header("SE音量設定")]
+            [JsonProperty(Required = Required.Always)]
             [Range(0, 100)] public int seVolume;        // SE音量の設定
             [Header("効果音音量設定")]
+            [JsonProperty(Required = Required.Always)]
             [Range(0, 100)] public int effectVolume;    // 効果音音量の設定
         }
 
@@ -54,8 +64,10 @@ namespace LastHit
         public struct DisplayConfig
         {
             [Header("フルスクリーン設定")]
+            [JsonProperty(Required = Required.Always)]
             public bool isFullScreen;       // フルスクリーン設定
             [Header("ウィンドウサイズ設定")]
+            [JsonProperty(Required = Required.Always)]
             public WindowSize windowSize;   // ウィンドウサイズ設定
         }
 
@@ -75,18 +87,25 @@ namespace LastHit
         public struct OperateConfig   // 操作キーの定義
         {
             [Header("前に移動")]
+            [JsonProperty(Required = Required.Always)]
             public string moveForward;
             [Header("後ろに移動")]
+            [JsonProperty(Required = Required.Always)]
             public string moveBackward;
             [Header("右に移動")]
+            [JsonProperty(Required = Required.Always)]
             public string moveRight;
             [Header("左に移動")]
+            [JsonProperty(Required = Required.Always)]
             public string moveLeft;
             [Header("ジャンプ")]
+            [JsonProperty(Required = Required.Always)]
             public string jump;
             [Header("しゃがむ")]
+            [JsonProperty(Required = Required.Always)]
             public string crouch;
             [Header("回避")]
+            [JsonProperty(Required = Required.Always)]
             public string dodge;
         }
 
@@ -94,14 +113,19 @@ namespace LastHit
         public struct Config    // 設定のデータ構造をまとめた構造体
         {
             [Header("ゲームプレイ設定")]
+            [JsonProperty(Required = Required.Always)]
             public GamePlayConfig gamePlay;
             [Header("カメラ設定")]
+            [JsonProperty(Required = Required.Always)]
             public CameraConfig camera;
             [Header("音量設定")]
+            [JsonProperty(Required = Required.Always)]
             public SoundConfig sound;
             [Header("ディスプレイ設定")]
+            [JsonProperty(Required = Required.Always)]
             public DisplayConfig display;
             [Header("操作設定")]
+            [JsonProperty(Required = Required.Always)]
             public OperateConfig operate;
         }
     }
