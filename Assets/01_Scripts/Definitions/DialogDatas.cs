@@ -30,6 +30,13 @@ namespace LastHit
             buttonTexts = new string[] { "初期設定に戻す", "キャンセル" }
         };
 
+        public static readonly DialogData applyConfigWindow = new DialogData   // 設定適用時
+        {
+            headerText = "設定の適用",
+            messageText = "現在の設定を適用しますか？\n前回保存した設定は破棄され、現在の設定で上書きされます。",
+            buttonTexts = new string[] { "適用する", "キャンセル" }
+        };
+
         public static readonly DialogData discardChangesWindow = new DialogData   // 設定変更破棄時
         {
             headerText = "設定変更の破棄",
