@@ -116,7 +116,12 @@ public class OptionSceneController : MonoBehaviour
     /// <summary> 適用ボタンが押された際の処理を行うメソッド </summary>
     private void OnApplyButtonClicked()
     {
-        DialogController.Instance.ShowDialog(LastHit.DialogDatas.applyConfigWindow, () => ConfigDataController.Instance.ApplyConfig(model.configData));
+        DialogController.Instance.ShowDialog(LastHit.DialogDatas.applyConfigWindow, () =>
+        {
+            ConfigDataController.Instance.ApplyConfig(model.configData);
+            SetAudioVolume.ApplyAllVolumes(model.configData.sound);
+            SetKeyBind.ApplyAllKeyBindings(model.configData.operate);
+        });
     }
 
     /// <summary> 閉じるボタンが押された際の処理を行うメソッド </summary>
