@@ -17,6 +17,7 @@ public class BootSceneController : MonoBehaviour
 
         SetKeyBind.ApplyAllKeyBindings(config.operate, inputActions);
         SetAudioVolume.ApplyAllVolumes(config.sound);
+        SetCameraConfig.ApplyCameraConfig(config.camera);
         
         sceneTransition.LoadScene(TITLE_SCENE, _isFadeEnabled: true);
     }

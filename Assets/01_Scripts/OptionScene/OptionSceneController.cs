@@ -120,6 +120,7 @@ public class OptionSceneController : MonoBehaviour
         {
             ConfigDataController.Instance.ApplyConfig(model.configData);
             SetAudioVolume.ApplyAllVolumes(model.configData.sound);
+            SetCameraConfig.ApplyCameraConfig(model.configData.camera);
             SetKeyBind.ApplyAllKeyBindings(model.configData.operate);
         });
     }
