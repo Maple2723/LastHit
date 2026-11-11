@@ -489,7 +489,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraOptionView
   sensitivitySlider: {fileID: 981000001}
+  sensitivityInput: {fileID: 982100000}
   fieldOfViewSlider: {fileID: 981000002}
+  fieldOfViewInput: {fileID: 982100001}
   invertXToggle: {fileID: 981000003}
   invertYToggle: {fileID: 981000004}
 --- !u!1 &980001020
@@ -537,9 +539,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundOptionView
   masterVolumeSlider: {fileID: 981000005}
+  masterVolumeInput: {fileID: 982100002}
   bgmVolumeSlider: {fileID: 981000006}
+  bgmVolumeInput: {fileID: 982100003}
   seVolumeSlider: {fileID: 981000007}
+  seVolumeInput: {fileID: 982100004}
   effectVolumeSlider: {fileID: 981000008}
+  effectVolumeInput: {fileID: 982100005}
 --- !u!1 &980001030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,3 +1208,69 @@ SceneRoots:
   - {fileID: 1697682928}
   - {fileID: 1108151394}
   - {fileID: 204636711}
+--- !u!114 &982100000 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 996100004, guid: 0fb019e0aa413ab41b68e4afc4079353, type: 3}
+  m_PrefabInstance: {fileID: 1108151394}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TMP_InputField
+--- !u!114 &982100001 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 996100104, guid: 0fb019e0aa413ab41b68e4afc4079353, type: 3}
+  m_PrefabInstance: {fileID: 1108151394}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TMP_InputField
+--- !u!114 &982100002 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 996100204, guid: 0fb019e0aa413ab41b68e4afc4079353, type: 3}
+  m_PrefabInstance: {fileID: 1108151394}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TMP_InputField
+--- !u!114 &982100003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 996100304, guid: 0fb019e0aa413ab41b68e4afc4079353, type: 3}
+  m_PrefabInstance: {fileID: 1108151394}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TMP_InputField
+--- !u!114 &982100004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 996100404, guid: 0fb019e0aa413ab41b68e4afc4079353, type: 3}
+  m_PrefabInstance: {fileID: 1108151394}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TMP_InputField
+--- !u!114 &982100005 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 996100504, guid: 0fb019e0aa413ab41b68e4afc4079353, type: 3}
+  m_PrefabInstance: {fileID: 1108151394}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TMP_InputField
