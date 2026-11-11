@@ -13,10 +13,10 @@ public static class SetAudioVolume
     /// <param name="_config"> 音量設定 </param>
     public static void ApplyAllVolumes(SoundConfig _config)
     {
-        SetMasterVolume(config.masterVolume);
-        SetBgmVolume(config.bgmVolume);
-        SetSeVolume(config.seVolume);
-        SetEffectVolume(config.effectVolume);
+        SetMasterVolume(_config.masterVolume);
+        SetBgmVolume(_config.bgmVolume);
+        SetSeVolume(_config.seVolume);
+        SetEffectVolume(_config.effectVolume);
     }
 
     public static void SetMasterVolume(int volume) => SetVolume("MasterVolume", volume);
