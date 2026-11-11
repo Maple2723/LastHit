@@ -7,6 +7,16 @@
             "id": "d95a8260-3dd9-41ed-b495-8369677378b5",
             "actions": [
                 {
+                    "name": "CameraLook",
+                    "type": "Value",
+                    "id": "7604335a-73d2-48bc-98bc-ce3538cb468f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true,
+                    "priority": 0
+                },
+                {
                     "name": "Move",
                     "type": "Value",
                     "id": "bcb43c85-6782-42b3-83e5-72e0991afff1",
@@ -48,6 +58,17 @@
                 }
             ],
             "bindings": [
+                {
+                    "name": "",
+                    "id": "a2aef5f9-a6aa-4275-a85d-cc98a7c2b76c",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CameraLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
                 {
                     "name": "2D Vector",
                     "id": "c16ff596-bab0-4565-a379-d8cb7e50a26a",
