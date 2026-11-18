@@ -57,7 +57,7 @@ public class TitleSceneController : MonoBehaviour
     /// <summary> トレーニングボタンが押された際の処理を行うメソッド </summary>
     private void TrainingButtonClicked()
     {
-        SceneTransitionController.Instance.LoadScene(STAGE_SELECT_SCENE, _isFadeEnabled: true);
+        SceneTransitionController.Instance.LoadScene(INGAME_SCENE, _isFadeEnabled: true);
     }
 
     /// <summary> 設定ボタンが押された際の処理を行うメソッド </summary>
