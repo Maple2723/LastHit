@@ -567,6 +567,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backButton: {fileID: 1854319169}
   gameStartButton: {fileID: 331195974}
+  stageCarousel: {fileID: 2100000470}
+--- !u!224 &2100000470 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2100000401, guid: 8c9456021ac545d4e915a0fb5d7a05a4, type: 3}
+  m_PrefabInstance: {fileID: 621371813}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
