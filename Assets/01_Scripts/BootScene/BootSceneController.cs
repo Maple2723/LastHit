@@ -16,6 +16,7 @@ public class BootSceneController : MonoBehaviour
         var config = configController.GetConfigData();
 
         SetKeyBind.ApplyAllKeyBindings(config.operate, inputActions);
+        SetScreenSize.ApplyScreenSize(config.display);
         SetAudioVolume.ApplyAllVolumes(config.sound);
         SetCameraConfig.ApplyCameraConfig(config.camera);
         

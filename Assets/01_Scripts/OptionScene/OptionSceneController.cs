@@ -119,6 +119,7 @@ public class OptionSceneController : MonoBehaviour
         DialogController.Instance.ShowDialog(LastHit.DialogDatas.applyConfigWindow, () =>
         {
             ConfigDataController.Instance.ApplyConfig(model.configData);
+            SetScreenSize.ApplyScreenSize(model.configData.display);
             SetAudioVolume.ApplyAllVolumes(model.configData.sound);
             SetCameraConfig.ApplyCameraConfig(model.configData.camera);
             SetKeyBind.ApplyAllKeyBindings(model.configData.operate);
